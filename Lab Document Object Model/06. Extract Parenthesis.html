@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="content">
+    This is some text. (this must be extracted). Some more text. (some more extract)
+</p>
+<script>
+    function solution(id) {
+        let para = document.getElementById(id).textContent
+        let pattern = /\(([^)]+)\)/g
+        let result = []
+        let match = pattern.exec(para)
+        while(match) {
+            result.push(match[1])
+            match = pattern.exec(para)
+        }
+        return result.join('; ')
+    }
+</script>
+</body>
+</html>
